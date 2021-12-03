@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Power1
   - Power2
+  - LevelLimit
   layers:
   - Default
   - TransparentFX
