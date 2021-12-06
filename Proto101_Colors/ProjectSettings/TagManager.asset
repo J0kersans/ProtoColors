@@ -7,6 +7,7 @@ TagManager:
   - Power1
   - Power2
   - LevelLimit
+  - Obstacle
   layers:
   - Default
   - TransparentFX

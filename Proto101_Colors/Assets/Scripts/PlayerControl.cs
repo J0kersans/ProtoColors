@@ -2,21 +2,13 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-/*
-    #region FallDamage
 
     public int playerLife = 5;
-    bool _grounded = false;
-    bool wasGrounded;
-    bool wasFalling;
-    float startOfFall;
-    public float minimumFall = 2f;
-
-    #endregion
-*/
+    public GameObject endScreen;
+ 
     #region MoveElements
 
-    public float MovementSpeed = 4;
+    public float MovementSpeed = 5;
     public float JumpForce = 6;
 
     #endregion
@@ -38,43 +30,26 @@ public class PlayerControl : MonoBehaviour
 
     #region Environement 
 
+    public GameObject baseObstacle;
     public GameObject blueEra;
+    public GameObject blueObstacle;
     public GameObject redEra;
 
     #endregion
 
-    public Rigidbody2D rb2d;
+    private Rigidbody2D rb2d;
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        endScreen.SetActive(false);
     }
 
     void Update()
     {
         PowerUsage();
         Powers();
-       /* CheckGround();
 
-        if (!wasFalling && isFalling)
-        {
-            startOfFall = transform.position.y;
-        }
-
-        if (!wasGrounded && _grounded)
-        {
-            TakeDamage();
-        }
-        wasGrounded = _grounded;
-       
-
-        //Conditions de défaites 
-
-        if(playerLife == 0)
-        {
-            Destroy(gameObject);
-        }
-*/
         //Différent mouvement du player
 
         #region Movements
@@ -88,6 +63,12 @@ public class PlayerControl : MonoBehaviour
         }
 
         #endregion
+
+        if (playerLife <= 0)
+        {
+            endScreen.SetActive(true);
+            Time.timeScale = 0;
+        }
 
     }
 
@@ -106,10 +87,17 @@ public class PlayerControl : MonoBehaviour
             Destroy(Power2.gameObject);
         }
 
-       /* if (collision.gameObject.CompareTag("LevelLimit"))
+       if (collision.gameObject.CompareTag("LevelLimit"))
         {
             playerLife = 0;
-        }*/
+            Debug.Log(playerLife);
+        }
+
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            playerLife -= 1;
+            Debug.Log(playerLife);
+        }
 
     }
 
@@ -136,6 +124,8 @@ public class PlayerControl : MonoBehaviour
         {
             powerJump = false;
             powerFall = false;
+
+            baseObstacle.SetActive(true);
         }
     }
 
@@ -159,34 +149,17 @@ public class PlayerControl : MonoBehaviour
         //Détails chute ralenti et changement d'environnement
         if(powerFall == true)
         {
-            GetComponent<Rigidbody2D>().drag = 9;
+            rb2d.drag = 9;
             blueBack.SetActive(true);
             blueEra.SetActive(true);
+            blueObstacle.SetActive(true);
         }
         else if(powerFall == false)
         {
-            GetComponent<Rigidbody2D>().drag = 1;
+            rb2d.drag = 1;
             blueBack.SetActive(false);
             blueEra.SetActive(false);
+            blueObstacle.SetActive(false);
         }
     }
-
-   /* void CheckGround()
-    {
-        _grounded = Physics.Raycast(transform.position + Vector3.up, -Vector3.up, 1.01f);
-    }
-
-    bool isFalling { get { return (!_grounded && rb2d.velocity.y < 0); } }
-
-    void TakeDamage()
-    {
-        float fallDistance = startOfFall - transform.position.y;
-
-        if (fallDistance > minimumFall)
-        {
-            playerLife -= 1;
-            Debug.Log("Perte de HP");
-            Debug.Log(playerLife);
-        }
-    }*/
 }
