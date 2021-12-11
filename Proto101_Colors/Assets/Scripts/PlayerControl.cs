@@ -7,9 +7,6 @@ public class PlayerControl : MonoBehaviour
 
     public int playerLife = 5;
     public bool playerIsDead = false;
-    //public GameObject checkpoint;
-   // private Renderer checkpointRenderer;
-    //Vector3 spawnPoint;
 
     #endregion
 
@@ -50,7 +47,6 @@ public class PlayerControl : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         //spawnPoint = gameObject.transform.position;
-        //endScreen.SetActive(false);
         //checkpointRenderer = checkpoint.GetComponent<Renderer>();
     }
 
@@ -58,21 +54,6 @@ public class PlayerControl : MonoBehaviour
     {
         PowerUsage();
         Powers();
-
-        //Respawn initial du player
-
-        if (playerLife == 0)
-        {
-            playerIsDead = true;
-
-            Debug.Log("Player is dead");
-            /*gameObject.transform.position = spawnPoint;
-            playerLife = 5;*/
-        }
-        else if(playerLife < 0)
-        {
-            playerIsDead = false;
-        }
 
         //Différent mouvement du player
 
@@ -87,12 +68,6 @@ public class PlayerControl : MonoBehaviour
         }
 
         #endregion
-
-        /* if (playerLife <= 0)
-         {
-             endScreen.SetActive(true);
-             Time.timeScale = 0;
-         } */
 
     }
 
