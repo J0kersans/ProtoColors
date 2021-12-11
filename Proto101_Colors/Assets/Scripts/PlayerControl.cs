@@ -3,9 +3,16 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
 
+    #region CheckpointSystem
+
     public int playerLife = 5;
-    public GameObject endScreen;
- 
+    public bool playerIsDead = false;
+    //public GameObject checkpoint;
+   // private Renderer checkpointRenderer;
+    //Vector3 spawnPoint;
+
+    #endregion
+
     #region MoveElements
 
     public float MovementSpeed = 5;
@@ -42,13 +49,30 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        endScreen.SetActive(false);
+        //spawnPoint = gameObject.transform.position;
+        //endScreen.SetActive(false);
+        //checkpointRenderer = checkpoint.GetComponent<Renderer>();
     }
 
-    void Update()
+    public void Update()
     {
         PowerUsage();
         Powers();
+
+        //Respawn initial du player
+
+        if (playerLife == 0)
+        {
+            playerIsDead = true;
+
+            Debug.Log("Player is dead");
+            /*gameObject.transform.position = spawnPoint;
+            playerLife = 5;*/
+        }
+        else if(playerLife < 0)
+        {
+            playerIsDead = false;
+        }
 
         //Différent mouvement du player
 
@@ -64,11 +88,11 @@ public class PlayerControl : MonoBehaviour
 
         #endregion
 
-        if (playerLife <= 0)
-        {
-            endScreen.SetActive(true);
-            Time.timeScale = 0;
-        }
+        /* if (playerLife <= 0)
+         {
+             endScreen.SetActive(true);
+             Time.timeScale = 0;
+         } */
 
     }
 
@@ -87,7 +111,7 @@ public class PlayerControl : MonoBehaviour
             Destroy(Power2.gameObject);
         }
 
-       if (collision.gameObject.CompareTag("LevelLimit"))
+        if (collision.gameObject.CompareTag("LevelLimit"))
         {
             playerLife = 0;
             Debug.Log(playerLife);
@@ -105,11 +129,11 @@ public class PlayerControl : MonoBehaviour
     void PowerUsage()
     {
         //La touche "a" active le saut boosté
-        if(Input.GetKeyDown("a") && powerJumpAutorisation == true)
+        if (Input.GetKeyDown("a") && powerJumpAutorisation == true)
         {
             powerFall = false;
             powerJump = true;
-            
+
         }
 
         //La touche "z" active la chute ralenti
@@ -139,7 +163,7 @@ public class PlayerControl : MonoBehaviour
             redBack.SetActive(true);
             redEra.SetActive(true);
         }
-        else if(powerJump == false)
+        else if (powerJump == false)
         {
             JumpForce = 6;
             redBack.SetActive(false);
@@ -147,14 +171,14 @@ public class PlayerControl : MonoBehaviour
         }
 
         //Détails chute ralenti et changement d'environnement
-        if(powerFall == true)
+        if (powerFall == true)
         {
             rb2d.drag = 9;
             blueBack.SetActive(true);
             blueEra.SetActive(true);
             blueObstacle.SetActive(true);
         }
-        else if(powerFall == false)
+        else if (powerFall == false)
         {
             rb2d.drag = 1;
             blueBack.SetActive(false);
@@ -162,4 +186,16 @@ public class PlayerControl : MonoBehaviour
             blueObstacle.SetActive(false);
         }
     }
+
+    /* private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Checkpoint"))
+        {
+            spawnPoint = collision.gameObject.transform.position;
+            checkpointRenderer = collision.gameObject.GetComponent<Renderer>();
+            checkpointRenderer.material.SetColor("_Color", new Color(0, 255, 12));
+            Debug.Log("Collision");
+
+        }
+    }*/
 }

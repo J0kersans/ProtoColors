@@ -8,6 +8,7 @@ TagManager:
   - Power2
   - LevelLimit
   - Obstacle
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
