@@ -106,6 +106,7 @@
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
+-r:"Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.1.13f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.1.13f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.1.13f1/Editor/Data/Managed/UnityEngine/UnityEditor.dll"
@@ -299,6 +300,9 @@
 -r:"C:/Program Files/Unity/Hub/Editor/2021.1.13f1/Editor/Data/NetStandard/Extensions/2.0.0/System.Runtime.InteropServices.WindowsRuntime.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.1.13f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll"
 -r:"C:/Users/J0ker/Documents/GitFiles/ProtoColors/Proto101_Colors/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll"
+-r:"Library/Bee/artifacts/500b0aE.dag/AstarPathfindingProject.ref.dll"
+-r:"Library/Bee/artifacts/500b0aE.dag/AstarPathfindingProjectEditor.ref.dll"
+-r:"Library/Bee/artifacts/500b0aE.dag/PackageToolsEditor.ref.dll"
 -r:"Library/Bee/artifacts/500b0aE.dag/PsdPlugin.ref.dll"
 -r:"Library/Bee/artifacts/500b0aE.dag/Unity.2D.Animation.Editor.ref.dll"
 -r:"Library/Bee/artifacts/500b0aE.dag/Unity.2D.Animation.Runtime.ref.dll"
@@ -329,7 +333,15 @@
 -r:"Library/Bee/artifacts/500b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/500b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/500b0aE.dag/UnityEngine.UI.ref.dll"
+"Assets/Scripts/AudioComponent.cs"
+"Assets/Scripts/AudioSystem.cs"
 "Assets/Scripts/CheckpointScript.cs"
+"Assets/Scripts/Feedback.cs"
+"Assets/Scripts/FeedbackComponent.cs"
+"Assets/Scripts/FeedbackSystem.cs"
+"Assets/Scripts/JumpFeedback.cs"
+"Assets/Scripts/ParticleEffect.cs"
+"Assets/Scripts/Player.cs"
 "Assets/Scripts/PlayerControl.cs"
 -langversion:8.0
 
