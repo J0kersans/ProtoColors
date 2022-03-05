@@ -53,16 +53,20 @@
     <UnityVersion>2021.1.13f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\CheckpointScript.cs" />
-    <Compile Include="Assets\Scripts\AudioSystem.cs" />
-    <Compile Include="Assets\Scripts\PlayerControl.cs" />
-    <Compile Include="Assets\Scripts\FeedbackSystem.cs" />
-    <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\AudioComponent.cs" />
-    <Compile Include="Assets\Scripts\FeedbackComponent.cs" />
-    <Compile Include="Assets\Scripts\Feedback.cs" />
-    <Compile Include="Assets\Scripts\ParticleEffect.cs" />
+    <Compile Include="Assets\Scripts\Level\CheckpointScript.cs" />
+    <Compile Include="Assets\Scripts\ClassWork\Feedback.cs" />
+    <Compile Include="Assets\Scripts\ClassWork\ParticleEffect.cs" />
     <Compile Include="Assets\Scripts\JumpFeedback.cs" />
+    <Compile Include="Assets\Scripts\ClassWork\AudioComponent.cs" />
+    <Compile Include="Assets\Scripts\ClassWork\AudioSystem.cs" />
+    <Compile Include="Assets\Scripts\Level\PlayerControl.cs" />
+    <Compile Include="Assets\Scripts\Level\NextLevel.cs" />
+    <Compile Include="Assets\Scripts\ClassWork\FeedbackSystem.cs" />
+    <Compile Include="Assets\Scripts\ClassWork\FeedbackComponent.cs" />
+    <Compile Include="Assets\Scripts\ClassWork\Player.cs" />
+    <Compile Include="Assets\Scripts\Level\HealthBarScript.cs" />
+    <Compile Include="Assets\Scripts\Level\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Level\Projectile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -296,11 +300,11 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.1.13f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
       <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.1.13f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
@@ -739,17 +743,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
-      <Project>{C561F30E-0B34-6C90-FBDA-F5E7805B5201}</Project>
-      <Name>AstarPathfindingProjectEditor</Name>
+    <ProjectReference Include="PackageToolsEditor.csproj">
+      <Project>{D83DF4D5-20D4-E08E-FA10-B05421CFAC33}</Project>
+      <Name>PackageToolsEditor</Name>
     </ProjectReference>
     <ProjectReference Include="AstarPathfindingProject.csproj">
       <Project>{FD7F6543-B9BF-136D-78CF-7A97946F8FB5}</Project>
       <Name>AstarPathfindingProject</Name>
     </ProjectReference>
-    <ProjectReference Include="PackageToolsEditor.csproj">
-      <Project>{D83DF4D5-20D4-E08E-FA10-B05421CFAC33}</Project>
-      <Name>PackageToolsEditor</Name>
+    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
+      <Project>{C561F30E-0B34-6C90-FBDA-F5E7805B5201}</Project>
+      <Name>AstarPathfindingProjectEditor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,6 +9,7 @@ TagManager:
   - LevelLimit
   - Obstacle
   - Checkpoint
+  - StartPos
   layers:
   - Default
   - TransparentFX
