@@ -5,10 +5,17 @@ using UnityEngine.UI;
 
 public class HealthBarScript : MonoBehaviour
 {
+//Détails de la barre de vie
+    #region HealthBar
     private Image HealthBar;
     public float CurrentHealth;
     private float MaxHealth = 100f;
-    PlayerControl Player;
+    #endregion
+
+//Elément du script PlayerControl
+    #region PlayerSpecifics
+    private PlayerControl Player;
+    #endregion
 
     // Start is called before the first frame update
     private void Start()
@@ -18,9 +25,31 @@ public class HealthBarScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
+//Complétion de la barre de vie
         CurrentHealth = Player.Health;
         HealthBar.fillAmount = CurrentHealth / MaxHealth;
+
+        ColorChanges();
+    }
+
+    public void ColorChanges()
+    {
+        //Changement de couleur selon l'environnement
+        if (Player.powerJump == true)
+        {
+            HealthBar.color = Color.blue;
+        }
+        
+        if (Player.slowFall == true)
+        {
+            HealthBar.color = Color.red;
+        }
+        
+        if (Player.powerJump == false && Player.slowFall == false)
+        {
+            HealthBar.color = Color.green;
+        }
     }
 }

@@ -1744,8 +1744,8 @@ MonoBehaviour:
   powerFall: 0
   powerJumpAutorisation: 0
   powerFallAutorisation: 0
-  Jump: {fileID: 1408760577}
-  Fall: {fileID: 854003040}
+  Jump: {fileID: 572282920}
+  Fall: {fileID: 298306647}
   Back1: {fileID: 843690243}
   Back2: {fileID: 98406354}
   baseObstacle: {fileID: 2075805317}

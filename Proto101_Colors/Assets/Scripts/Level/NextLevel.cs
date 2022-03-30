@@ -9,19 +9,7 @@ public class NextLevel : MonoBehaviour
     public string sLevelToLoad;
     public bool useIntegerToLoadLevel = false;
 
-
-    
-    void Start()
-    {
-        
-    }
-
-    
-    void Update()
-    {
-        
-    }
-
+//Lancer une scène après collision avec le player
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject collisionGameObject = collision.gameObject;

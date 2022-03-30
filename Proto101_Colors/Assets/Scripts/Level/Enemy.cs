@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
    void Update()
     {
+//Quand l'ennemi doit-il reculer ou s'arrêter
         if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
@@ -35,6 +36,7 @@ public class Enemy : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
         }
 
+//Cadence de tir
         if(timeBtwShots <= 0)
         {
             Instantiate(projectile, transform.position, Quaternion.identity);

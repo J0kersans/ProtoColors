@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class CheckpointScript : MonoBehaviour
 {
-    //Appel de variable
+//Appel de variable
     private GameObject player;
     private PlayerControl playerControl;
 
-    //Acquisition des positions du joueur et du checkpoint
+//Acquisition des positions du joueur et du checkpoint
     Vector3 playerFirstCheckpoint;
     Vector3 checkPoint;
 
-    //Acquisition du renderer
-    private Renderer checkpointRenderer;
-
-    
-    
+//Acquisition du renderer
+    private Renderer checkpointRenderer; 
 
     // Start is called before the first frame update
     public void Start()
@@ -33,7 +30,7 @@ public class CheckpointScript : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        //Si le joueur meurt il respawn à sa position de départ
+//Si le joueur meurt il respawn à sa position de départ
         if (playerControl.Health == 0f)
         {
             player.transform.position = playerFirstCheckpoint;
@@ -45,13 +42,12 @@ public class CheckpointScript : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        //Si le joueur est entré en collision avec un Checkpoint, la position du checkpoint devient sa position de départ
+//Si le joueur est entré en collision avec un Checkpoint, la position du checkpoint devient sa position de départ
         if (collision.gameObject.CompareTag("Player") )
         {
             playerFirstCheckpoint = checkPoint;
             checkpointRenderer.material.SetColor("_Color", new Color(0, 255, 12));
             Debug.Log("Collision");
-
         }
     }
 }
