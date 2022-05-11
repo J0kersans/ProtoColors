@@ -341,12 +341,16 @@
 "Assets/Scripts/ClassWork/ParticleEffect.cs"
 "Assets/Scripts/ClassWork/Player.cs"
 "Assets/Scripts/JumpFeedback.cs"
+"Assets/Scripts/Level/AudioManagerScript.cs"
 "Assets/Scripts/Level/CheckpointScript.cs"
 "Assets/Scripts/Level/Enemy.cs"
 "Assets/Scripts/Level/HealthBarScript.cs"
+"Assets/Scripts/Level/ManagerEventScript.cs"
 "Assets/Scripts/Level/NextLevel.cs"
 "Assets/Scripts/Level/PlayerControl.cs"
 "Assets/Scripts/Level/Projectile.cs"
+"Assets/Scripts/Level/SceneManagerScript.cs"
+"Assets/Scripts/Level/ShakeScript.cs"
 "Assets/Scripts/Level/TutoScript.cs"
 -langversion:8.0
 

@@ -45,6 +45,9 @@ public class PlayerControl : MonoBehaviour
     public GameObject redEnvironment;
     #endregion
 
+    public AudioManagerScript sceneAudio;
+    public ShakeScript shaking;
+    public bool collisionHappening;
     private Rigidbody2D rb2d;
 
     void Start()
@@ -58,6 +61,7 @@ public class PlayerControl : MonoBehaviour
 
     public void Update()
     {
+        collisionHappening = false;
         PowerUsage();
         Powers();
 
@@ -104,7 +108,9 @@ public class PlayerControl : MonoBehaviour
 //Obstacle réduisant la vie du joueur
         if (collision.gameObject.CompareTag("Obstacle"))
         {
+            collisionHappening = true;
             Health -= 20f;
+            //ShakeScript.Shaking();
             Debug.Log(Health);
         }
     }
@@ -127,6 +133,8 @@ public class PlayerControl : MonoBehaviour
         {
             powerJump = false;
             slowFall = true;
+            AudioManagerScript.clip = sceneAudio.ZeWorld;
+            AudioManagerScript.PlayAudio();
             Back1.gameObject.SetActive(false);
             Back2.gameObject.SetActive(true);
         }

@@ -5,9 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
-    public int iLevelToLoad;
-    public string sLevelToLoad;
-    public bool useIntegerToLoadLevel = false;
+    public SceneManagerScript levelManagement;
 
 //Lancer une scène après collision avec le player
     private void OnTriggerEnter2D(Collider2D collision)
@@ -16,19 +14,8 @@ public class NextLevel : MonoBehaviour
 
         if(collisionGameObject.name == "Player")
         {
-            LoadScene();
+            levelManagement.Play();
         }
     }
 
-    void LoadScene()
-    {
-        if (useIntegerToLoadLevel)
-        {
-            SceneManager.LoadScene(iLevelToLoad);
-        }
-        else
-        {
-            SceneManager.LoadScene(sLevelToLoad);
-        }
-    }
 }
