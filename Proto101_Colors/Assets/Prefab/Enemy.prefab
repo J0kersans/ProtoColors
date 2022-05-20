@@ -103,7 +103,8 @@ MonoBehaviour:
   stoppingDistance: 10
   retreatDistance: 5
   startTimeBtwShots: 2
-  projectile: {fileID: 0}
+  projectile: {fileID: 3112373059611765111, guid: 6c48583c6c2c65d4ab15be88ac76d36a,
+    type: 3}
   player: {fileID: 0}
 --- !u!50 &1498506492994469401
 Rigidbody2D:

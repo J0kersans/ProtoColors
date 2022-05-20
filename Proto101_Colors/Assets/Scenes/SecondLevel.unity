@@ -1734,24 +1734,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 100
   playerIsDead: 0
-  MovementSpeed: 5
+  MoveSpeed: 5
   JumpForce: 6
-  Power1: {fileID: 572282920}
-  Power2: {fileID: 298306647}
-  blueBack: {fileID: 1723183472}
-  redBack: {fileID: 1937447325}
+  PowerJump: {fileID: 572282920}
+  PowerSlowFall: {fileID: 298306647}
+  powerJumpBackground: {fileID: 1937447325}
+  slowFallBackground: {fileID: 1723183472}
   powerJump: 0
-  powerFall: 0
+  slowFall: 0
   powerJumpAutorisation: 0
-  powerFallAutorisation: 0
-  Jump: {fileID: 572282920}
-  Fall: {fileID: 298306647}
+  slowFallAutorisation: 0
   Back1: {fileID: 843690243}
   Back2: {fileID: 98406354}
   baseObstacle: {fileID: 2075805317}
-  blueEra: {fileID: 404212327}
+  blueEnvironment: {fileID: 404212327}
   blueObstacle: {fileID: 309529937}
-  redEra: {fileID: 1632465145}
+  redEnvironment: {fileID: 1632465145}
+  sceneAudio: {fileID: 0}
+  shaking: {fileID: 0}
+  collisionHappening: 0
 --- !u!70 &494860234
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3299,9 +3300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a889dcd87f01794a9d525203744c80c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iLevelToLoad: 0
-  sLevelToLoad: 
-  useIntegerToLoadLevel: 1
+  levelManagement: {fileID: 0}
 --- !u!61 &1986163305
 BoxCollider2D:
   m_ObjectHideFlags: 0
