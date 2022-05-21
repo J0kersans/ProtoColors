@@ -4,40 +4,55 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed;
+    /*public float speed;
     public float stoppingDistance;
-    public float retreatDistance;
+    public float retreatDistance;*/
 
     private float timeBtwShots;
     public float startTimeBtwShots;
 
+[Header("Projectile Direction")]
+    public bool shootingTop;
+    public bool shootingBot;
+    public bool shootingRight;
+    public bool shootingLeft;
+
+
     public GameObject projectile;
-    public Transform player;
+    public Projectile projectileScript;
+    //public Transform player;
  
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        projectileScript = projectile.GetComponent<Projectile>();
+        // player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
    void Update()
     {
-//Quand l'ennemi doit-il reculer ou s'arrêter
-        if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-        }
-        else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance) 
-        {
-            transform.position = this.transform.position;
-        }
-        else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
-        }
+//Direction des projectiles
 
-//Cadence de tir
-        if(timeBtwShots <= 0)
+        /*if (shootingTop == true)
+        {
+            projectileScript.shootTopEvent();
+        }
+        if (shootingBot == true)
+        {
+            projectileScript.shootBotEvent();
+        }
+        if (shootingRight == true)
+        {
+            projectileScript.shootRightEvent();
+        }
+        if (shootingLeft == true)
+        {
+            projectileScript.shootLeftEvent();
+        }*/
+     
+
+        //Cadence de tir
+        if (timeBtwShots <= 0)
         {
             Instantiate(projectile, transform.position, Quaternion.identity);
             timeBtwShots = startTimeBtwShots;
